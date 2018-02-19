@@ -1,0 +1,21 @@
+{
+    "plugins": [
+        [
+            "module-resolver", {
+            "root": ["."],
+            "alias": {
+                "styles": "./src/styles",
+                "components": "./src/components",
+                "actions": "./src/actions",
+                "services": "./src/services",
+                "config": "./src/config",
+                "records": "./src/records"
+            },
+            "cwd": "babelrc"
+        }]
+    ],
+    "presets": [
+        "next/babel"
+    ],
+    "ignore": []
+}

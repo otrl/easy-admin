@@ -1,0 +1,24 @@
+{
+  "name": "easy-admin",
+  "version": "0.0.1",
+  "description": "Admin panel wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lefterisk/easy-admin.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lefterisk/easy-admin/issues"
+  },
+  "homepage": "https://github.com/lefterisk/easy-admin#readme",
+  "dependencies": {
+    "antd": "^3.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}
