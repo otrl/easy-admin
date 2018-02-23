@@ -1,24 +1,52 @@
 {
-  "name": "easy-admin",
-  "version": "0.0.1",
-  "description": "Admin panel wrapper",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lefterisk/easy-admin.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lefterisk/easy-admin/issues"
-  },
-  "homepage": "https://github.com/lefterisk/easy-admin#readme",
-  "dependencies": {
-    "antd": "^3.2.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  }
+    "name": "sleasy-admin",
+    "version": "0.0.1",
+    "description": "Admin panel wrapper",
+    "main": "lib/index.js",
+    "scripts": {
+        "build": "node tools/build.js",
+        "watch": "npm-watch",
+        "test": "test"
+    },
+    "watch": {
+        "build": {
+            "patterns": ["src"],
+            "extensions": "js,less"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lefterisk/easy-admin.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lefterisk/easy-admin/issues"
+    },
+    "homepage": "https://github.com/lefterisk/easy-admin#readme",
+    "dependencies": {
+        "antd": "^3.2.1",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-plugin-dev-expression": "^0.2.1",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-export-extensions": "^6.22.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "babel-register": "^6.26.0",
+        "colors": "^1.1.2",
+        "fs-extra": "^5.0.0",
+        "npm-watch": "^0.3.0"
+    },
+    "peerDependencies": {
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "antd": "^3.2.1"
+    }
 }
