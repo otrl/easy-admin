@@ -10,7 +10,9 @@
     },
     "watch": {
         "build": {
-            "patterns": ["src"],
+            "patterns": [
+                "src"
+            ],
             "extensions": "js,less"
         }
     },
@@ -26,8 +28,11 @@
     "homepage": "https://github.com/lefterisk/easy-admin#readme",
     "dependencies": {
         "antd": "^3.2.1",
+        "rc-drawer-menu": "^0.5.5",
         "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "react-dom": "^16.2.0",
+        "react-router-dom": "^4.2.2",
+        "react-transition-group": "^2.2.1"
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
@@ -47,6 +52,7 @@
     "peerDependencies": {
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
-        "antd": "^3.2.1"
+        "antd": "^3.2.1",
+        "react-transition-group": "^2.2.1"
     }
 }

@@ -1,0 +1,36 @@
+body {
+    overflow-x: hidden;
+}
+
+.logo-big, .logo-small {
+    height: @logo-height;
+    width: 100%;
+    position: relative;
+    display: block;
+    background: lighten(@layout-sider-background, 5%);
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 15px;
+        right: 15px;
+    }
+}
+
+.fadeInUpSmall-exit {
+    display: none;
+}
+
+.fadeInUpSmall-enter {
+    opacity: 0.01;
+    transform: translate3d(0, 5%, 0);
+}
+
+.fadeInUpSmall-enter.fadeInUpSmall-enter-active {
+    opacity: 1;
+    transform: none;
+    transition: all .2s ease-in;
+}
