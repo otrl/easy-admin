@@ -34,3 +34,50 @@ body {
     transform: none;
     transition: all .2s ease-in;
 }
+
+h1 {
+    display: flex;
+    position: relative;
+    align-items: center;
+    white-space: nowrap;
+    margin-top: 20px;
+
+    &:before {
+        content: '';
+        width: 5px;
+        height: 40px;
+        background-color: @border-color-base;
+        display: flex;
+        margin: 0 15px 0 0;
+    }
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        top: 50%;
+        background-color: @border-color-base;
+        display: flex;
+        margin: 0 0 0 15px;
+    }
+
+    span {
+        background: @layout-body-background;
+        color: @text-color;
+    }
+
+    small {
+        font-size: 0.5em;
+        font-weight: normal;
+        color: @text-color-secondary;
+    }
+}
+
+.content-section {
+    background: #fff;
+    padding: @padding-md;
+}
+
+.ant-table-row {
+    background: white;
+}

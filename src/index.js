@@ -16,11 +16,12 @@ import {
 import ResponsiveRender from './components/ResponsiveRender';
 import MainMenu from './components/MainMenu';
 import Users from './pages/Users';
+import User from './pages/User';
 import Roles from './pages/Roles';
 
 const {Header, Content, Footer, Sider} = Layout;
 
-export default class User extends React.Component {
+export default class Index extends React.Component {
     state = {
         collapsed: false,
     };
@@ -78,6 +79,7 @@ export default class User extends React.Component {
                                 <TransitionGroup>
                                     <CSSTransition key={location.key} classNames="fadeInUpSmall" timeout={300}>
                                         <Switch location={location}>
+                                            <Route path="/users/:id" component={User}/>
                                             <Route exact path="/users" component={Users} />
                                             <Route exact path="/roles" component={Roles} />
                                             <Route render={() => <div>Home</div>} />
