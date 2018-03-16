@@ -1,15 +1,16 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import PropTypes from 'prop-types';
+import {Menu, Icon} from 'antd';
 
-import { NavLink, withRouter } from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 
 const SubMenu = Menu.SubMenu;
 
-function MainMenu ({ location }) {
+function MainMenu ({location, navigation}) {
     return (
         <Menu theme="dark" mode="inline" selectedKeys={[location.pathname]}>
             <Menu.Item key="/">
-                <NavLink to="/"><Icon type="pie-chart" /><span>Home</span></NavLink>
+                <NavLink to="/"><Icon type="pie-chart"/><span>Home</span></NavLink>
             </Menu.Item>
             <SubMenu
                 key="sub0"
@@ -22,9 +23,18 @@ function MainMenu ({ location }) {
                     <NavLink to="/roles"><Icon type="user"/><span>Roles</span></NavLink>
                 </Menu.Item>
             </SubMenu>
+            {navigation.map(navItem => <navItem/>)}
         </Menu>
     );
 }
+
+MainMenu.propTypes = {
+    navigation: PropTypes.array
+};
+
+MainMenu.defaultProps = {
+    navigation: []
+};
 
 export default withRouter(MainMenu);
 

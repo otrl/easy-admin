@@ -1,7 +1,12 @@
 import React from 'react';
 import {Breadcrumb} from 'antd';
+import UserForm from '../components/forms/UserForm';
 
 export default class User extends React.Component {
+    handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     render () {
         return (<div>
             <h1>User</h1>
@@ -10,7 +15,7 @@ export default class User extends React.Component {
                 <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div className="content-section">
-
+                <UserForm/>
             </div>
 
         </div>);

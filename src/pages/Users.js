@@ -104,7 +104,6 @@ export default class Users extends React.Component {
             </Breadcrumb>
             <Table dataSource={dataSource} columns={columns} bordered rowSelection={rowSelection} pagination={ false } footer={() => footer}/>
             <br/>
-
         </div>);
     }
 }
