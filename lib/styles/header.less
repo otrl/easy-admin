@@ -1,0 +1,50 @@
+.header-section {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    padding-left: 0;
+    transition: background 0.3s, width 0.2s;
+    height: @layout-header-height;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+    :global {
+        .ant-menu-submenu.ant-menu-submenu-horizontal {
+            line-height: @layout-header-height;
+            height: 100%;
+            .ant-menu-submenu-title {
+                height: 100%;
+            }
+        }
+    }
+
+    .logo {
+        float: left;
+        display: inline-block;
+        height: @layout-header-height;
+        width: 256px;
+        transition: background 0.3s, width 0.2s;
+        box-shadow: 2px 0 8px 0 @border-color-split;
+    }
+
+    .menu-trigger {
+        float: left;
+        line-height: @layout-header-height;
+        padding: 0 20px;
+        font-size: 1.2em;
+        height: 64px;
+        cursor: pointer;
+
+        svg {
+            position: relative;
+            top: 3px;
+        }
+    }
+}
+
+.is-mobile .header-section, .nav-collapsed .header-section {
+    .logo {
+        width: @sider-width-collapsed;
+    }
+}

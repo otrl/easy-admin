@@ -12,7 +12,15 @@
                 "records": "./src/records"
             },
             "cwd": "babelrc"
-        }]
+        }],
+        "transform-class-properties", // stage 2
+        "transform-object-rest-spread", // stage 3
+        "transform-runtime",
+        "transform-export-extensions"
     ],
-    "ignore": []
+    "ignore": [],
+    "presets": [
+        [ "env", { "loose": true } ],
+        "react"
+    ]
 }

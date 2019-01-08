@@ -28,17 +28,25 @@ let getConfig = ({ modules = true, test = false } = {}) => ({
 });
 
 async function buildFile(filename, destination, babelOptions = {}) {
-    if (path.extname(filename) !== '.js') {
+    const isJS = path.extname(filename) === '.js';
+    const isLESS = path.extname(filename) === '.less';
+    if (!isJS && !isLESS) {
         return;
     }
     const content = await fse.readFile(filename, { encoding: 'utf8' });
 
     babelOptions.filename = filename;
 
-    const result = transform(content, babelOptions);
     const output = path.join(destination, path.basename(filename));
 
-    await fse.outputFile(output, result.code);
+    let code = '';
+    if (isJS) {
+        const result = transform(content, babelOptions);
+        code = result.code;
+    } else {
+        code = content;
+    }
+    await fse.outputFile(output, code);
 }
 
 async function _build(

@@ -1,0 +1,28 @@
+.sider.ant-layout-sider {
+    min-height: 100vh;
+    padding-top: @layout-header-height;
+    box-shadow: 2px 0 8px 0 @border-color-split;
+    background-color: @sider-bg;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: @sider-width !important;
+    max-width: @sider-width !important;
+    min-width: @sider-width !important;
+
+    &.ant-layout-sider-collapsed {
+        width: @sider-width-collapsed !important;
+        max-width: @sider-width-collapsed !important;
+        min-width: @sider-width-collapsed !important;
+    }
+
+    :global(.ant-menu-root) {
+        overflow-y: auto;
+        height: ~'calc(100vh - @{layout-header-height})';
+    }
+    :global(.ant-menu-light) {
+        border-right: none;
+        border-right-color: transparent;
+    }
+}
