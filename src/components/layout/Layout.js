@@ -31,12 +31,6 @@ import AccountPage from '../account';
 
 import ActionLogPage from '../action-log';
 
-import CustomersListingPage from '../customers/Listing';
-
-import CardholdersListingPage from '../cardholders/Listing';
-
-import SmartcardPage from '../smartcard';
-
 import AuthorisedRoute from '../AuthorisedRoute';
 
 class Layout extends React.PureComponent {
@@ -115,11 +109,6 @@ class Layout extends React.PureComponent {
                                              permission={Permissions.USERS_CREATE}
                                              setPathMatch={this.setPathMatch([Urls.USERS_CREATE, Urls.USERS])}
                                              component={UserCreatePage}/>
-                            <AuthorisedRoute path={Urls.CARDHOLDERS}
-                                             user={user}
-                                             permission={Permissions.CARDHOLDERS_VIEW}
-                                             setPathMatch={this.setPathMatch([Urls.CARDHOLDERS])}
-                                             component={CardholdersListingPage}/>
                             <AuthorisedRoute path={Urls.ACCOUNT}
                                              user={user}
                                              permission={Permissions.ACCOUNT_VIEW}
@@ -130,16 +119,7 @@ class Layout extends React.PureComponent {
                                              permission={Permissions.ACTION_LOG_VIEW}
                                              setPathMatch={this.setPathMatch([Urls.ACTION_LOG])}
                                              component={ActionLogPage}/>
-                            <AuthorisedRoute path={Urls.CUSTOMERS}
-                                             user={user}
-                                             permission={Permissions.CUSTOMERS_VIEW}
-                                             setPathMatch={this.setPathMatch([Urls.CUSTOMERS])}
-                                             component={CustomersListingPage}/>
-                            <AuthorisedRoute path={Urls.SMARTCARD}
-                                             user={user}
-                                             permission={Permissions.SMARTCARD_VIEW}
-                                             setPathMatch={this.setPathMatch([Urls.SMARTCARD])}
-                                             component={SmartcardPage}/>
+
                         </Switch>
                     </ALayout.Content>
                     <FooterSection dictionary={dictionary}/>

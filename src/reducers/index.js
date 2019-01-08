@@ -12,16 +12,10 @@ import rolesOptionsState from './RolesOptionsState';
 import roleState from './RoleState';
 import usersState from './UsersState';
 import userState from './UserState';
-import cardholdersState from './CardholdersState';
-import cardholderState from './CardholderState';
 import accountState from './AccountState';
 import accountActionLogState from './AccountActionLogState';
 import actionLogState from './ActionLogState';
 import usersOptionsState from './UsersOptionsState';
-import customersState from './CustomersState';
-import smartcardState from './SmartcardState';
-import ticketHistoryState from './TicketHistoryState';
-import journeyHistoryState from './JourneyHistoryState';
 
 export default (history) => combineReducers({
     router: connectRouter(history),
@@ -36,14 +30,8 @@ export default (history) => combineReducers({
     roleState,
     usersState,
     userState,
-    cardholdersState,
-    cardholderState,
     accountState,
     accountActionLogState,
     actionLogState,
     usersOptionsState,
-    customersState,
-    smartcardState,
-    ticketHistoryState,
-    journeyHistoryState
 })

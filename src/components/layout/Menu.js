@@ -41,18 +41,6 @@ export default function Menu ({dictionary, collapsed, toggleNav, user, currentPa
                         <span>{dictionary.getByKey("NAVIGATION_ROLES")}</span>
                     </NavLink>
                 </AntMenu.Item>}
-                {user.hasPermission(Permissions.CARDHOLDERS_VIEW) && <AntMenu.Item key={Urls.CARDHOLDERS}>
-                    <NavLink to={Urls.CARDHOLDERS}>
-                        <Icon type="contacts" />
-                        <span>{dictionary.getByKey("NAVIGATION_CARDHOLDERS")}</span>
-                    </NavLink>
-                </AntMenu.Item>}
-                {user.hasPermission(Permissions.CUSTOMERS_VIEW) && <AntMenu.Item key={Urls.CUSTOMERS}>
-                    <NavLink to={Urls.CUSTOMERS}>
-                        <Icon type="contacts" />
-                        <span>{dictionary.getByKey("NAVIGATION_CUSTOMERS")}</span>
-                    </NavLink>
-                </AntMenu.Item>}
                 {user.hasPermission(Permissions.ACTION_LOG_VIEW) && <AntMenu.Item key={Urls.ACTION_LOG}>
                     <NavLink to={Urls.ACTION_LOG}>
                         <Icon type="eye" />
