@@ -7,9 +7,7 @@ import Dictionary from '../../records/Dictionary';
 export default function FooterSection ({dictionary}) {
     return (
         <Layout.Footer className="footer-section">
-            <footer>
-                footer
-            </footer>
+            <footer dangerouslySetInnerHTML={{ __html: dictionary.getByKey("FOOTER_TEXT") }}/>
         </Layout.Footer>
     );
 }

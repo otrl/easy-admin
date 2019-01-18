@@ -5,6 +5,7 @@ import {List} from 'immutable';
 
 import Dictionary from '../../records/Dictionary';
 import User from '../../records/User';
+import {defaultConfigShape} from '../../default-config';
 
 import Menu from './Menu';
 
@@ -14,20 +15,23 @@ export default class MenuSection extends React.PureComponent {
         collapsed: PropTypes.bool.isRequired,
         isMobile: PropTypes.bool.isRequired,
         toggleNav: PropTypes.func.isRequired,
+        appTree: defaultConfigShape.appTree,
         currentPathMatch: PropTypes.instanceOf(List),
         user: PropTypes.instanceOf(User).isRequired,
     };
 
     static defaultProps = {
-        currentPathMatch: null
+        currentPathMatch: null,
+        appTree: []
     };
 
     render () {
-        const {dictionary, collapsed, isMobile, toggleNav, currentPathMatch, user} = this.props;
+        const {dictionary, collapsed, isMobile, toggleNav, currentPathMatch, user, appTree} = this.props;
         return isMobile ? (
             <Drawer visible={!collapsed} placement="left" onClose={toggleNav} style={{padding: 0, height: '100vh'}}>
                 <Menu dictionary={dictionary}
                       toggleNav={toggleNav}
+                      appTree={appTree}
                       user={user}
                       currentPathMatch={currentPathMatch}
                       collapsed={isMobile ? false : collapsed}/>
@@ -35,6 +39,7 @@ export default class MenuSection extends React.PureComponent {
         ) : (
             <Menu dictionary={dictionary}
                   toggleNav={toggleNav}
+                  appTree={appTree}
                   user={user}
                   currentPathMatch={currentPathMatch}
                   collapsed={collapsed}/>

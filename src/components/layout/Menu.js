@@ -5,11 +5,12 @@ import {List} from 'immutable';
 import {NavLink} from 'react-router-dom';
 
 import {Permissions, Urls} from '../../constants';
+import {defaultConfigShape} from '../../default-config';
 
 import Dictionary from '../../records/Dictionary';
 import User from '../../records/User';
 
-export default function Menu ({dictionary, collapsed, toggleNav, user, currentPathMatch}) {
+export default function Menu ({dictionary, collapsed, toggleNav, user, currentPathMatch, appTree}) {
     return (
         <Layout.Sider
             trigger={null}
@@ -47,6 +48,14 @@ export default function Menu ({dictionary, collapsed, toggleNav, user, currentPa
                         <span>{dictionary.getByKey("NAVIGATION_ACTION_LOG")}</span>
                     </NavLink>
                 </AntMenu.Item>}
+                {appTree && appTree.map(navigationItem => {
+                    return (user.hasPermission(navigationItem.navPermission) && navigationItem.navString)  && <AntMenu.Item key={navigationItem.path}>
+                        <NavLink to={navigationItem.path}>
+                            {navigationItem.navIcon && <Icon type={navigationItem.navIcon} />}
+                            <span>{dictionary.getByKey(navigationItem.navString)}</span>
+                        </NavLink>
+                    </AntMenu.Item>;
+                })}
             </AntMenu>
         </Layout.Sider>
     );
@@ -58,9 +67,11 @@ Menu.propTypes = {
     user: PropTypes.instanceOf(User).isRequired,
     currentPathMatch: PropTypes.instanceOf(List),
     collapsed: PropTypes.bool,
+    appTree: defaultConfigShape.appTree,
 };
 
 Menu.defaultProps = {
     collapsed: false,
-    currentPathMatch: null
+    currentPathMatch: null,
+    navigation: []
 };

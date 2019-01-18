@@ -233,6 +233,7 @@ const defaults = {
         SMARTCARD_TAB_INFO: 'Info',
         SMARTCARD_TAB_TICKET_HISTORY: 'Ticket history',
         SMARTCARD_TAB_JOURNEY_HISTORY: 'Journey history',
+        FOOTER_TEXT: 'Powered by <a href="http://www.ontrackretail.co.uk" target="_blank">OnTrack retail</a>',
         BOO: 'Create',
     }),
 };

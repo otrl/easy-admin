@@ -1,5 +1,4 @@
 import {List} from 'immutable';
-import {LOCATION_CHANGE, } from 'connected-react-router'
 
 import {UiActionTypes} from '../constants';
 

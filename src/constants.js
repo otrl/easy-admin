@@ -41,6 +41,8 @@ export const ConfigActions = keyMirror({
 export const UiActionTypes = keyMirror({
     SET_PATH_MATCH: null,
     TOGGLE_NAV: null,
+    CLOSE_NAV: null,
+    OPEN_NAV: null,
     LOADING_START: null,
     LOADING_END: null,
     LOADING_CLEAR_ALL: null

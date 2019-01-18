@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Layout as ALayout} from 'antd';
-import {Switch, Redirect} from 'react-router-dom';
+import {Switch, Redirect, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Media from 'react-media';
@@ -43,6 +43,8 @@ class Layout extends React.PureComponent {
         toggleNav: PropTypes.func.isRequired,
         setPathMatch: PropTypes.func.isRequired,
         user: PropTypes.instanceOf(User),
+        homePageComponent: PropTypes.func,
+        appTree: PropTypes.array
     };
 
     setPathMatch = (pathsArray) => () => {
@@ -50,7 +52,7 @@ class Layout extends React.PureComponent {
     };
 
     render () {
-        const {user, isMobile, dictionary, toggleNav, ui} = this.props;
+        const {user, isMobile, dictionary, toggleNav, ui, homePageComponent, appTree} = this.props;
 
         if (!user) {
             return <Redirect to={{
@@ -71,6 +73,7 @@ class Layout extends React.PureComponent {
                              collapsed={ui.navCollapsed}
                              isMobile={isMobile}
                              user={user}
+                             appTree={appTree}
                              toggleNav={toggleNav}/>
                 <ALayout>
                     <HeaderSection isMobile={isMobile}
@@ -119,7 +122,14 @@ class Layout extends React.PureComponent {
                                              permission={Permissions.ACTION_LOG_VIEW}
                                              setPathMatch={this.setPathMatch([Urls.ACTION_LOG])}
                                              component={ActionLogPage}/>
-
+                            {appTree && appTree.map(page => <AuthorisedRoute path={page.path}
+                                                                             key={page.path}
+                                                                             user={user}
+                                                                             permission={page.permission}
+                                                                             setPathMatch={this.setPathMatch(page.pathMatches)}
+                                                                             component={page.pageComponent}/>)}
+                            <Route path={Urls.HOME}
+                                   component={homePageComponent}/>
                         </Switch>
                     </ALayout.Content>
                     <FooterSection dictionary={dictionary}/>
@@ -140,6 +150,8 @@ const getStoresMap = (state) => {
     return {
         user: state.auth.user,
         dictionary: state.dictionary,
+        homePageComponent: state.config.homePageComponent,
+        appTree: state.config.appTree,
         ui: state.ui
     };
 };

@@ -114,21 +114,7 @@ class SearchForm extends React.PureComponent {
 
 export default AntForm.create({
     mapPropsToFields ({search}) {
-        console.log(search);
         const {fromDate, toDate, userId, action, resourceType} = search;
-        // const values = {};
-        //
-        // if (fromDate || toDate) {
-        //     values.range = AntForm.createFormField({
-        //         value: [fromDate, toDate]
-        //     });
-        // }
-        //
-        // if (userId) {
-        //     values.range = AntForm.createFormField({
-        //         value: [fromDate, toDate]
-        //     });
-        // }
 
         return {
             range: AntForm.createFormField({

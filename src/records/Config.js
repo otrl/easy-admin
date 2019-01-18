@@ -8,8 +8,9 @@ const defaults = {
     api: defaultConfig.api,
     gaProperty: defaultConfig.gaProperty,
     paginationDefaults: new Map(defaultConfig.paginationDefaults),
-    isHttps: false,
-    unauthorizedRedirectUrl: defaultConfig.unauthorizedRedirectUrl
+    unauthorizedRedirectUrl: defaultConfig.unauthorizedRedirectUrl,
+    homePageComponent: defaultConfig.homePageComponent,
+    appTree: defaultConfig.appTree
 };
 
 export default class Config extends record(defaults) {
@@ -18,8 +19,9 @@ export default class Config extends record(defaults) {
             api: fields.string,
             gaProperty: fields.string,
             paginationDefaults: resolve.with(Map),
-            isHttps: fields.boolean,
             unauthorizedRedirectUrl: fields.string,
+            homePageComponent: (value) => value,
+            appTree: (value) => value
         });
     }
 }
