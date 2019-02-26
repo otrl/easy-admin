@@ -13,9 +13,6 @@ export const Urls = {
     USERS_CREATE: "/users-create",
     USER_VIEW: "/users/:id",
     TECHNICAL_DIFFICULTIES: "/technical-difficulties",
-    CARDHOLDERS: "/cardholders",
-    CUSTOMERS: "/customers",
-    SMARTCARD: "/smartcard/:isrn",
     ACCOUNT: "/account",
     ACTION_LOG: "/action-log",
 };
@@ -164,30 +161,6 @@ export const ForceLogoutActionTypes = keyMirror({
     FORCE_LOGOUT_FAIL: null,
 });
 
-export const CustomersActionTypes = keyMirror({
-    CUSTOMERS_GET_START: null,
-    CUSTOMERS_GET_SUCCESS: null,
-    CUSTOMERS_GET_FAIL: null,
-});
-
-export const SmartcardActionTypes = keyMirror({
-    SMARTCARD_GET_START: null,
-    SMARTCARD_GET_SUCCESS: null,
-    SMARTCARD_GET_FAIL: null,
-});
-
-export const TicketHistoryActionTypes = keyMirror({
-    TICKET_HISTORY_GET_START: null,
-    TICKET_HISTORY_GET_SUCCESS: null,
-    TICKET_HISTORY_GET_FAIL: null,
-});
-
-export const JourneyHistoryActionTypes = keyMirror({
-    JOURNEY_HISTORY_GET_START: null,
-    JOURNEY_HISTORY_GET_SUCCESS: null,
-    JOURNEY_HISTORY_GET_FAIL: null,
-});
-
 export const Permissions = {
     ALL: "all",
     USERS_VIEW: "users-view",
@@ -204,12 +177,8 @@ export const Permissions = {
     ROLE_VIEW: "role-view",
     ROLE_UPDATE: "role-update",
     ROLE_DELETE: "role-delete",
-    CARDHOLDERS_VIEW: "cardholders-view",
-    CARDHOLDER_VIEW: "cardholder-view",
     ACTION_LOG_VIEW: "action-log-view",
     FORCE_LOGOUT: "force-logout",
-    CUSTOMERS_VIEW: "customers-view",
-    SMARTCARD_VIEW: "smartcard-view",
 };
 
 export const BulkActions = {
@@ -231,15 +200,5 @@ export const ResourceAction = {
     PASSWORD_RESET_REQUEST: 7,
     PASSWORD_RESET: 8,
     FORCE_LOGOUT: 9,
-};
-
-export const SmartcardStatus = {
-    REQUESTED: "Requested",
-    FULFILLING: "Fulfilling",
-    INACTIVE: "Inactive",
-    REJECTED: "Rejected",
-    ACCEPTED: "Accepted",
-    ACKNOWLEDGED: "Acknowledged",
-    WITHDRAWN: "Withdrawn",
-    ACTIVE: "Active",
+    LOGOUT: 10,
 };

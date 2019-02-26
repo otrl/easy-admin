@@ -27,6 +27,8 @@ import UsersListingPage from '../users/Listing';
 import UserCreatePage from '../users/Create';
 import UserUpdatePage from '../users/Update';
 
+import LogoutPage from '../logout';
+
 import AccountPage from '../account';
 
 import ActionLogPage from '../action-log';
@@ -79,6 +81,7 @@ class Layout extends React.PureComponent {
                     <HeaderSection isMobile={isMobile}
                                    navCollapsed={ui.navCollapsed}
                                    toggleNav={toggleNav}
+                                   user={user}
                                    dictionary={dictionary}/>
                     <ALayout.Content className="content-section">
                         <Switch>
@@ -128,6 +131,8 @@ class Layout extends React.PureComponent {
                                                                              permission={page.permission}
                                                                              setPathMatch={this.setPathMatch(page.pathMatches)}
                                                                              component={page.pageComponent}/>)}
+                            <Route path={Urls.LOGOUT}
+                                   component={LogoutPage}/>
                             <Route path={Urls.HOME}
                                    component={homePageComponent}/>
                         </Switch>

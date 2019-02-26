@@ -31,10 +31,13 @@ class AuthService {
         }
     }
 
-    static async logout (userId) {
+    static async logout () {
         try {
             const apiClient = new Api();
-            await apiClient.post('/logout', { userId });
+            await apiClient.patch('/logout', {
+                accessToken: Cookies.get(AccessTokenCookiePath),
+                refreshToken: Cookies.get(RefreshTokenCookiePath)
+            });
             return Promise.resolve();
         } catch (err) {
             console.error(err);

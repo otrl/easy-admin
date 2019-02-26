@@ -14,10 +14,10 @@ const AuthActions = {
             return Promise.reject(err);
         }
     },
-    logout: user => async dispatch => {
+    logout: () => async dispatch => {
         try {
             if (Cookies.get(TokenCookiePath)) {
-                await AuthService.logout(user.get('id'));
+                await AuthService.logout();
             }
             dispatch({type: AuthActionTypes.AUTH_LOGOUT});
             return Promise.resolve();
