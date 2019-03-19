@@ -17,7 +17,7 @@ import accountActionLogState from './AccountActionLogState';
 import actionLogState from './ActionLogState';
 import usersOptionsState from './UsersOptionsState';
 
-export default (history) => combineReducers({
+export default (history, asyncReducers = {}) => combineReducers({
     router: connectRouter(history),
     config,
     ui,
@@ -34,4 +34,5 @@ export default (history) => combineReducers({
     accountActionLogState,
     actionLogState,
     usersOptionsState,
+    ...asyncReducers
 })

@@ -29,7 +29,8 @@ export const defaultConfigShape = {
             permission: PropTypes.string.isRequired,
             pageComponent: PropTypes.func.isRequired,
         }))
-    }))
+    })),
+    reducers: PropTypes.object,
 };
 
 export default {
@@ -41,4 +42,5 @@ export default {
     },
     unauthorizedRedirectUrl: Urls.HOME,
     homePageComponent: Home,
+    reducers: {}
 };

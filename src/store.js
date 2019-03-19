@@ -34,7 +34,7 @@ const persistConfig = {
     transforms: [SetTransform],
     key: 'root',
     throttle: 1000,
-    keyPrefix: 'cbo-',
+    keyPrefix: 'easy-admin-',
     storage,
     stateReconciler: autoMergeLevel1,
     whitelist: ['auth', 'session']
@@ -48,3 +48,7 @@ export const store = createStore(
 );
 
 export const persistor = persistStore(store);
+
+export function injectAsyncReducers(asyncReducers = {}) {
+    store.replaceReducer(persistReducer(persistConfig, createReducer(history, asyncReducers)));
+}

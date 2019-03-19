@@ -9,7 +9,7 @@ import {ConnectedRouter} from 'connected-react-router'
 moment.tz.setDefault('Europe/London');
 moment.relativeTimeThreshold('m', 59);
 
-import {store, persistor, history} from './store';
+import {store, persistor, history, injectAsyncReducers} from './store';
 import {Urls} from './constants';
 
 import StoreInitialiser from './components/StoreInitialiser';
@@ -31,6 +31,10 @@ class Index extends React.Component {
     static defaultProps = {
         config: defaultConfig
     };
+
+    componentWillMount () {
+        injectAsyncReducers(this.props.config.reducers)
+    }
 
     render () {
         return (
