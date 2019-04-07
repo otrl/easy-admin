@@ -51,4 +51,5 @@ export const persistor = persistStore(store);
 
 export function injectAsyncReducers(asyncReducers = {}) {
     store.replaceReducer(persistReducer(persistConfig, createReducer(history, asyncReducers)));
+    persistStore(store);
 }
